@@ -1,0 +1,456 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    transition: .8s;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(Poppins-Regular.ttf);
+}
+
+.iphone{
+    display: flex;
+    transition: .8s;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Poppins';
+}
+
+/* .application-menu {
+    transform: scale(1.6);
+} */
+
+/* FORMA IPHONE */
+
+.iphone-frame {
+    background-color: #fff;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    width: 260px;
+    border: 8px solid #000;
+    border-radius: 40px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 0px 0px #333;
+}
+
+/* FORMA NOTCH IPHONE */
+
+.iphone-frame .norch {
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 24px;
+    width: 100px;
+    background-color: #000;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.norch .rounded {
+    position: relative;
+}
+
+.norch::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 7px;
+    height: 4px;
+    width: 30px;
+    border-radius: 10px;
+    border: 0.03em solid rgb(51, 51, 51, 0.479);
+    box-shadow: inset 0px 0px 3px 0px rgb(51, 51, 51, 0.712);
+}
+
+.norch::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    background-color: #333;
+}
+
+.norch .rounded::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    /* background-color: #e2b64f; */
+    top: 0;
+    height: 20px;
+    width: 20px;
+    z-index: 1;
+    border-top-right-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 1px -10px 0px 0px #000;
+}
+
+
+/* FONDO DE IPHONE */
+
+.app-container .bg-img .bg-frame {
+    position: relative;
+    height: 500px;
+    width: 100%;
+    background: linear-gradient(to right, #ff5757, #8c52ff);
+}
+
+
+/* NAVEGACIO IPHONE */
+
+.nav {
+    position: absolute;
+    top: 5px;
+    width: 100%;
+    height: 30px;
+    left: 0;
+    z-index: 101;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.nav .right {
+    padding-right: 15px;
+}
+
+.nav .right ion-icon {
+    color: #fff;
+    font-size: 14px;
+}
+
+.active {
+    z-index: 199;
+}
+
+.lock-screen {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    transition: .8s;
+    overflow: hidden;
+    left: 0;
+    height: 0%;
+    width: 100%;
+}
+
+.lock-screen.active {
+    height: 100% !important;
+}
+
+.lock-screen .time {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+.lock-screen .time h1 {
+    font-size: 50px;
+    height: 60px;
+    color: rgb(255, 255, 255, 0.829);
+}
+
+.lock-screen .time span {
+    font-size: 15px;
+    color: rgb(255, 255, 255, 0.829);
+
+}
+
+.scr-lock-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+}
+
+.scr-lock-nav button {
+    margin: 20px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.452);
+}
+
+.scr-lock-nav button.r-deg {
+    transform: rotate(-45deg);
+}
+
+
+/* BOTO INICIAR APLICACIO */
+
+.button {
+    position: absolute;
+    bottom: 5px;
+    height: 2px;
+    border-radius: 20px;
+    width: 90px;
+    left: 50%;
+    z-index: 102;
+    background-color: #fff;
+    transform: translateX(-50%);
+}
+
+.open-button {
+    position: center;
+    font-size: 10px;
+    color: #fff;
+    height: 25vw;
+    width: 12.2vw;
+    padding: 2px 5px;
+    cursor: pointer;
+    left: 50%;
+}
+
+.open-button img{
+    margin-top: 10vw;
+    margin-left: 1vw;
+    height: 4vw;
+    width: auto;
+}
+
+
+/* menu d'aplicacions */
+
+.application-menu {
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: scale(5);
+    visibility: hidden;
+}
+
+.application-menu.active {
+    transform: scale(1);
+    visibility: visible;
+}
+
+/* MENU DE NAVEGACIO, MENU D'ABAIX */
+
+.bottom-navigation {
+    position: absolute;
+    bottom: 3px;
+    width: 220px;
+    height: fit-content;
+    left: 0;
+    margin: 6px;
+    border-radius: 20px;
+    padding: 6px 6px;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.bottom-navigation .button-app {
+    width: fit-content;
+    line-height: 48px;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+    font-size: 26px;
+    
+}
+
+/* SLIDES ENTRE PAGINES */
+
+.slide-1 {
+    position: absolute;
+    top: 45px;
+    width: 100%;
+    transition: .7s;
+    left: 0;
+}
+
+#slide_2{
+    transform: translateX(300px) !important;
+}
+
+/* ICONES */
+
+.slide-1 .icon {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    cursor: pointer;
+    transition: .8s;
+}
+
+/* BOTO DE LA ICONA */
+
+.slide-1 .icon button {
+    height: 50px;
+    cursor: pointer;
+    width: 50px;
+    font-size: 25px;
+    transition: .8s;
+    border: 0;
+    line-height: 20px;
+    border-radius: 15px;
+}
+
+/* lletres icones */
+
+.slide-1 .icon div {
+    font-size: 8px;
+    margin-top: 7px;
+    color: #fff;
+}
+
+
+/* APLCIACIONS */
+
+.applications {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: .7s;
+    height: 100%;
+    width: 100%;
+    display: inline-flex;
+}
+
+/* SECCIONS APPLIACIONS, CADA LINEA */
+
+.icon-sect {
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-around;
+}
+
+.icon-sect-3 {
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-around;
+}
+
+.animate-lock-screen {
+    height: 0;
+    transition: .8s;
+    overflow: hidden;
+}
+
+
+
+/* TOTES LES ICONES */
+
+.apple-tv {
+    background-color: rgb(243, 13, 13);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+.home {
+    color: #deb805;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+.button-app.message{
+    background-color: #adec43;
+    color: #fff;
+}
+
+.icon .message {
+    background-color: #adec43 !important;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+.xbox-app {
+    background-color: green;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+.playstation-app {
+    background-image: linear-gradient(blue,#000 180%);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+.appstore {
+    background-image: linear-gradient(#4a80d2, #6525b8);
+    color: #fff;
+}
+
+/* NOVES IMPLEMENTACIONS */
+
+.xbox{
+    margin-left: 2vw;
+}
+
+.play{
+    margin-right: 2vw;
+}
+
+.apple{
+    margin-bottom: -1vw;
+}
+
+/* NOVES ICONES  */
+
+
+.apple-tv i{
+    color: white;
+    font-size: 30px;
+}
+
+.home i{
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+}
+
+.message i{
+    color: white;
+    font-size: 30px;
+}
+
+.xbox-app i{
+    color: white;
+    font-size: 30px;
+}
+
+.playstation-app i{
+    color: white;
+    font-size: 30px;
+}
+
+.appstore i{
+    font-size: 35px;
+    margin-top: 7px;
+    align-items: center;
+}
+
+/* IMAGEN DENTRO APP */
+
+.icon-sect img{
+    width: 150px;
+    margin-bottom: -2.5vw;
+}
